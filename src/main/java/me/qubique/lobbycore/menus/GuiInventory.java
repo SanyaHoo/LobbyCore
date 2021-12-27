@@ -23,6 +23,11 @@ import java.util.List;
 
 
 public class GuiInventory implements Listener {
+
+    static ArrayList<Player> playerhideall = new ArrayList<>();
+
+
+
     @EventHandler
     public void onJoin(PlayerJoinEvent e){
         Player p = e.getPlayer();

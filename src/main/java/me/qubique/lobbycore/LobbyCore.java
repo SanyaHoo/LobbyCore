@@ -1,5 +1,6 @@
 package me.qubique.lobbycore;
 
+import com.alonsoaliaga.alonsolevels.AlonsoLevels;
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.events.PacketAdapter;
@@ -24,6 +25,8 @@ public final class LobbyCore extends JavaPlugin implements Listener {
     public QubiqueBoard qubiqueBoard = new QubiqueBoard();
 
     private static LobbyCore instance;
+
+    private static AlonsoLevels alonsoLevels;
 
 
 
