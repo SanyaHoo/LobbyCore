@@ -37,8 +37,7 @@ public class GuiInventory implements Listener {
         addItemToInv(inv, Material.COMPASS, "§6Режим", 0, "");
         addItemToInv(inv, Material.DIRT, "§6Профиль §7" + p.getDisplayName(), 1,"");
         addItemToInv(inv, Material.GOLD_BLOCK, "§6Привилегии", 2,"");
-        addItemToInv(inv, Material.LIME_SHULKER_BOX, "§6Скрыть игроков", 7,"");
-        addItemToInv(inv, Material.SLIME_BALL, "§6Выбор лобби", 8,"");
+        addItemToInv(inv, Material.LIME_SHULKER_BOX, "§6Скрыть игроков", 8,"");
     }
 
     private void addItemToInv(Inventory inv, Material material, String name, Integer slot, String lore){
@@ -139,9 +138,6 @@ public class GuiInventory implements Listener {
             } else if (p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§6Косметика")) {
                 Inventory gui3 = Bukkit.createInventory(p, 9*6, "§8Косметика");
                 p.openInventory(gui3);
-            } else if (p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§6Выбор лобби")) {
-                Inventory gui4 = Bukkit.createInventory(p, 9*6, "§8Выбор лобби");
-                p.openInventory(gui4);
             }
         }
     }
