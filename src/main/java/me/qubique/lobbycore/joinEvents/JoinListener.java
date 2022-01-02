@@ -131,4 +131,11 @@ public class JoinListener implements Listener {
     public void onCreatureSpawn(CreatureSpawnEvent event) {
         if (event.getSpawnReason().equals(CreatureSpawnEvent.SpawnReason.NATURAL)) event.setCancelled(true);
     }
+    @EventHandler
+    public void naxui(PlayerInteractEvent event) {
+        Player p = event.getPlayer();
+        if (p.getGameMode() != GameMode.CREATIVE) {
+            event.setCancelled(true);
+        }
+    }
 }
