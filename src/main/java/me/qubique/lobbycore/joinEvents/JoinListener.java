@@ -123,10 +123,6 @@ public class JoinListener implements Listener {
         }
     }
     @EventHandler
-    public void onDrag(InventoryDragEvent e) {
-        e.setCancelled(true);
-    }
-    @EventHandler
     public void disableAchievement(PlayerAchievementAwardedEvent e) {
         e.setCancelled(true);
     }

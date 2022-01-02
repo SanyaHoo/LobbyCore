@@ -1,6 +1,7 @@
 package me.qubique.lobbycore.menus;
 
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.SkullType;
 import org.bukkit.entity.Player;
@@ -156,8 +157,11 @@ public class GuiInventory implements Listener {
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e) {
-        if(e.getClickedInventory() instanceof Inventory) {
-            e.setCancelled(true);
+        Player p = (Player) e.getWhoClicked();
+        if(p.getGameMode() == GameMode.SURVIVAL) {
+            if(e.getClickedInventory() instanceof Inventory) {
+                e.setCancelled(true);
+            }
         }
     }
 
