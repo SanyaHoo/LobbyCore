@@ -57,6 +57,7 @@ public class GuiInventory implements Listener {
     @EventHandler
     public void openGui(PlayerInteractEvent e) {
         Player p = e.getPlayer();
+        Inventory inv = p.getInventory();
         if(e.getAction().equals(Action.RIGHT_CLICK_AIR) ||  e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
             if( p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§6Режим")) {
                 Inventory gui = Bukkit.createInventory(p, 9*3, "§8Режим");
@@ -135,9 +136,20 @@ public class GuiInventory implements Listener {
             } else if (p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§6Привилегии")) {
                 Inventory gui2 = Bukkit.createInventory(p, 9*6, "§8Привилегии");
                 p.openInventory(gui2);
-            } else if (p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§6Косметика")) {
-                Inventory gui3 = Bukkit.createInventory(p, 9*6, "§8Косметика");
-                p.openInventory(gui3);
+            } else if (p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§6Скрыть игроков") || p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§6Показать игроков")) {
+                if (p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§6Скрыть игроков")) {
+                    for(Player ps : Bukkit.getServer().getOnlinePlayers()) {
+                        p.hidePlayer(ps);
+                    }
+                    addItemToInv(inv, Material.GRAY_SHULKER_BOX, "§6Показать игроков", 8,"");
+                    p.sendMessage("§6Игроки скрыты");
+                } else if (p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§6Показать игроков")){
+                    for(Player ps : Bukkit.getServer().getOnlinePlayers()) {
+                        p.showPlayer(ps);
+                    }
+                    addItemToInv(inv, Material.LIME_SHULKER_BOX, "§6Скрыть игроков", 8,"");
+                    p.sendMessage("§6Игроки снова видны");
+                }
             }
         }
     }

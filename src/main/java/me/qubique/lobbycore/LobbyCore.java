@@ -5,7 +5,7 @@ import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.events.PacketAdapter;
 import com.comphenix.protocol.events.PacketEvent;
-import jdk.nashorn.internal.objects.annotations.Getter;
+import me.qubique.lobbycore.blockCommands.BlockCommands;
 import me.qubique.lobbycore.board.QubiqueBoard;
 import me.qubique.lobbycore.doublejump.DoubleJumpListener;
 import me.qubique.lobbycore.joinEvents.JoinListener;
@@ -35,6 +35,7 @@ public final class LobbyCore extends JavaPlugin implements Listener {
         Bukkit.getPluginManager().registerEvents(new JoinListener(),this);
         Bukkit.getPluginManager().registerEvents(new GuiInventory(), this);
         Bukkit.getPluginManager().registerEvents(new DoubleJumpListener(), this);
+        Bukkit.getPluginManager().registerEvents(new BlockCommands(), this);
         instance = this;
         Bukkit.getPluginManager().registerEvents(this, this);
         if (Bukkit.getPluginManager().getPlugin("ProtocolLib") != null) {

@@ -106,13 +106,10 @@ public class JoinListener implements Listener {
     public void joinMessageDeny(PlayerQuitEvent e ) {
         e.setQuitMessage("");
     }
-    @EventHandler
-    public void onEntityGetDamage(EntityDamageEvent e){
-        e.setCancelled(true);
-    }
+
     @EventHandler
     public void damageByPlayer(EntityDamageEvent e){
-        e.setCancelled(true);
+        if (e.getEntity() instanceof Player) e.setCancelled(true);
     }
     @EventHandler
     public void mobSpawn(EntitySpawnEvent e) {
@@ -136,5 +133,9 @@ public class JoinListener implements Listener {
     @EventHandler
     public void foodLevel(FoodLevelChangeEvent e) {
         e.setCancelled(true);
+    }
+    @EventHandler
+    public void onCreatureSpawn(CreatureSpawnEvent event) {
+        if (event.getSpawnReason().equals(CreatureSpawnEvent.SpawnReason.NATURAL)) event.setCancelled(true);
     }
 }
