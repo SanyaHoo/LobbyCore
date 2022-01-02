@@ -54,7 +54,8 @@ public final class LobbyCore extends JavaPlugin implements Listener {
                     while(var4.hasNext()) {
                         Player x = (Player)var4.next();
                         if (x != p) {
-//                            p.hidePlayer(x);
+
+                            p.hidePlayer(x);
                         }
                     }
 

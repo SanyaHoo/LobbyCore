@@ -1,9 +1,6 @@
 package me.qubique.lobbycore.menus;
 
-import org.bukkit.Bukkit;
-import org.bukkit.GameMode;
-import org.bukkit.Material;
-import org.bukkit.SkullType;
+import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -25,26 +22,42 @@ import java.util.List;
 
 public class GuiInventory implements Listener {
 
+    ItemStack playerskull;
+
+    @EventHandler
+    public void join(PlayerJoinEvent event){
+
+        Player player = event.getPlayer();
 
 
-    public static ItemStack getHead(Player player) {
-
-        ItemStack item = new ItemStack(Material.SKULL_ITEM);
-        SkullMeta skull = (SkullMeta) item.getItemMeta();
-        skull.setOwner(player.getDisplayName());
-        item.setItemMeta(skull);
-        return item;
     }
 
 
     @EventHandler
     public void onJoin(PlayerJoinEvent e){
         Player p = e.getPlayer();
+//      початок
+        playerskull = new ItemStack(Material.SKULL_ITEM,1, (short) SkullType.PLAYER.ordinal());
+
+        SkullMeta meta = (SkullMeta) playerskull.getItemMeta();
+
+        meta.setOwner(p.getName());
+        meta.setDisplayName("§6Профиль §7" + p.getDisplayName());
+
+        playerskull.setItemMeta(meta);
+
+        p.getInventory().addItem(playerskull);
+        p.sendMessage(ChatColor.DARK_AQUA + "Please refer to your player heard for Player Info.");
+//      Кінець
+
+
+
         Inventory inv = p.getInventory();
         inv.clear();
-
         addItemToInv(inv, Material.COMPASS, "§6Режим", 0, "");
-        addItemToInv(inv, getHead(p).getType(), "§6Профиль §7" + p.getDisplayName(), 1,"");
+//        addItemToInv(inv, playerskull.getType().getData(), "§6Профиль §7" + p.getDisplayName(), 1,"");
+        inv.setItem(1,playerskull);
+
         addItemToInv(inv, Material.GOLD_BLOCK, "§6Привилегии", 2,"");
         addItemToInv(inv, Material.LIME_SHULKER_BOX, "§6Скрыть игроков", 8,"");
     }
@@ -118,7 +131,7 @@ public class GuiInventory implements Listener {
                         "\n§b→ Нажми для перехода к списку наград");
                 addItemToInv(gui1, Material.BOOK, "§aДостижения", 12,"§7Нажми чтобы увидеть свой " +
                         "\n§7прогресс выполнения достижений");
-                addItemToInv(gui1, getHead(p).getType(), "§aИнформация о профиле", 13,"§7Ник: §b" + p.getDisplayName() +
+                addItemToInv(gui1, playerskull.getType(), "§aИнформация о профиле", 13,"§7Ник: §b" + p.getDisplayName() +
                         "\n§7Уровень: §btest" +
                         "\n§7Опыт: §btest");
                 addItemToInv(gui1, Material.BREWING_STAND_ITEM, "§aМодификатор серебра", 14,"§7Увеличивает количество серебра, " +
