@@ -36,7 +36,7 @@ public final class LobbyCore extends JavaPlugin implements Listener {
         Bukkit.getPluginManager().registerEvents(new GuiInventory(), this);
         Bukkit.getPluginManager().registerEvents(new DoubleJumpListener(), this);
         Bukkit.getPluginManager().registerEvents(new BlockCommands(), this);
-        instance = this;
+        /*instance = this;
         Bukkit.getPluginManager().registerEvents(this, this);
         if (Bukkit.getPluginManager().getPlugin("ProtocolLib") != null) {
             ProtocolLibrary.getProtocolManager().addPacketListener(new PacketAdapter(this, new PacketType[]{PacketType.Play.Server.PLAYER_INFO}) {
@@ -63,7 +63,7 @@ public final class LobbyCore extends JavaPlugin implements Listener {
             });
         } else {
             this.getLogger().warning("ProtocolLib!");
-        }
+        }*/
 
     }
 
