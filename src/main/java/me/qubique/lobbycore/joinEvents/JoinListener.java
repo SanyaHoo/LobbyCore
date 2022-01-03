@@ -30,7 +30,7 @@ public class JoinListener implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent e){
         Player player = e.getPlayer();
-        Location loc = new Location(Bukkit.getWorld("world"), -11, 14, -7, 0, 0);
+        Location loc = new Location(Bukkit.getWorld("world"), 384.5, 8, 517.5, 135, 0);
         player.teleport(loc);
         player.setGameMode(GameMode.ADVENTURE);
         e.setJoinMessage("");
@@ -132,7 +132,7 @@ public class JoinListener implements Listener {
         if (event.getSpawnReason().equals(CreatureSpawnEvent.SpawnReason.NATURAL)) event.setCancelled(true);
     }
     @EventHandler
-    public void naxui(PlayerInteractEvent event) {
+    public void onClickChests(PlayerInteractEvent event) {
         Player p = event.getPlayer();
         if (p.getGameMode() != GameMode.CREATIVE) {
             event.setCancelled(true);

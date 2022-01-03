@@ -169,7 +169,7 @@ public class GuiInventory implements Listener {
 
                 p.openInventory(gui1);
             } else if (p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§6Привилегии")) {
-                Inventory gui2 = Bukkit.createInventory(p, 9*6, "§8Привилегии");
+                Inventory gui2 = Bukkit.createInventory(p, 9*5, "§8Привилегии");
                 addItemToInv(gui2, Material.DIRT, "§aБомжарик", 20,"§7Получаете доступ до:  " +
                         "\n§a→§7 Отпугивания людей вокруг себя(можно откл в настройках наверное)"+
                         "\n§a→§7 Получения 1 вещи раз в день"+
@@ -212,7 +212,7 @@ public class GuiInventory implements Listener {
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e) {
         Player p = (Player) e.getWhoClicked();
-        if(p.getGameMode() == GameMode.SURVIVAL) {
+        if(p.getGameMode() != GameMode.CREATIVE) {
             if(e.getClickedInventory() instanceof Inventory) {
                 e.setCancelled(true);
             }
