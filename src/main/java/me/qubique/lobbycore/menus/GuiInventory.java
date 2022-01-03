@@ -170,7 +170,27 @@ public class GuiInventory implements Listener {
                 p.openInventory(gui1);
             } else if (p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§6Привилегии")) {
                 Inventory gui2 = Bukkit.createInventory(p, 9*6, "§8Привилегии");
-                p.openInventory(gui2);
+                addItemToInv(gui2, Material.DIRT, "§aБомжарик", 20,"§7Получаете доступ до:  " +
+                        "\n§a→§7 Отпугивания людей вокруг себя(можно откл в настройках наверное)"+
+                        "\n§a→§7 Получения 1 вещи раз в день"+
+                        "\n§a→§7 Доступ до двойного прыжка"+
+                        "\n "+
+                        "\n§7 Стоимость: §aБесплатная привилегия!");
+
+                addItemToInv(gui2, Material.IRON_BLOCK, "§bВип", 22,"§7Получаете доступ до:  " +
+                        "\n§b→§7 Получаете в 0,0001 болольше уровня"+
+                        "\n§b→§7 Получения 3 вещи раз в день"+
+                        "\n§b→§7 Доступ до парочку команд(смотрите в...)"+
+                        "\n "+
+                        "\n§7Стоимость: §b 50руб");
+
+                addItemToInv(gui2, Material.GOLD_BLOCK, "§6Админ", 24,"§7Получаете доступ до:  " +
+                        "\n§6→§7 Получения в 5 болольше уровня"+
+                        "\n§6→§7 Получения 6 вещи раз в день"+
+                        "\n§6→§7 Доступ до админского чату"+
+                        "\n "+
+                        "\n§7Стоимость: §6 99руб");
+                        p.openInventory(gui2);
             } else if (p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase("§6Скрыть игроков")) {
 
                     for(Player ps : Bukkit.getServer().getOnlinePlayers()) {
