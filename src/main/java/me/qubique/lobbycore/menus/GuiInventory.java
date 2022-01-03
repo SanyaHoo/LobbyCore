@@ -43,7 +43,6 @@ public class GuiInventory implements Listener {
 
         meta.setOwner(p.getName());
         meta.setDisplayName("§6Профиль §7" + p.getDisplayName());
-
         playerskull.setItemMeta(meta);
 
         p.getInventory().addItem(playerskull);
@@ -131,9 +130,23 @@ public class GuiInventory implements Listener {
                         "\n§b→ Нажми для перехода к списку наград");
                 addItemToInv(gui1, Material.BOOK, "§aДостижения", 12,"§7Нажми чтобы увидеть свой " +
                         "\n§7прогресс выполнения достижений");
-                addItemToInv(gui1, playerskull.getType(), "§aИнформация о профиле", 13,"§7Ник: §b" + p.getDisplayName() +
-                        "\n§7Уровень: §btest" +
-                        "\n§7Опыт: §btest");
+
+
+                SkullMeta meta = (SkullMeta) playerskull.getItemMeta();
+                meta.setOwner(p.getName());
+                meta.setDisplayName("§aИнформация о профиле");
+                ArrayList<String> lore=new ArrayList<>();
+                lore.add("§7Ник: §b"+ p.getDisplayName());
+                lore.add("§7Уровень: §btest");
+                lore.add("§7Опыт: §btest");
+                meta.setLore(lore);
+                playerskull.setItemMeta(meta);
+
+
+                gui1.setItem(13, playerskull);
+//                addItemToInv(gui1, playerskull.getType(), "§aИнформация о профиле", 13,"§7Ник: §b" + p.getDisplayName() +
+//                        "\n§7Уровень: §btest" +
+//                        "\n§7Опыт: §btest");
                 addItemToInv(gui1, Material.BREWING_STAND_ITEM, "§aМодификатор серебра", 14,"§7Увеличивает количество серебра, " +
                         "\n§7которое вы получаете, играя в наши минирежимы" +
                         "\n" +
