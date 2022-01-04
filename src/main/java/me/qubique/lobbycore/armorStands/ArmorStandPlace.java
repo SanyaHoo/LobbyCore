@@ -4,22 +4,29 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.World;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Player;
 
-public class ArmorStandPlace {
-
-    public static void Place(double x, double y, double z, String name){
-        World world = Bukkit.getWorld("world");
-        Location loc = new Location(world, x, y, z);
-        ArmorStand hologram = (ArmorStand) world.spawnEntity(loc, EntityType.ARMOR_STAND);
+public class ArmorStandPlace implements CommandExecutor {
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        Player p=(Player)sender;
+        ArmorStand hologram=(ArmorStand) p.getWorld().spawnEntity(p.getLocation(), EntityType.ARMOR_STAND);
         hologram.setVisible(false);
-        hologram.setGravity(false);
         hologram.setCustomNameVisible(true);
-        hologram.setCustomName(name);
+        hologram.setCustomName("Tester func");
+        hologram.setGravity(false);
+
+        return true;
     }
 
-    public static void PlaceAS() {
-        Place(381.5, 8, 514.5, "test");
-    }
+
+
+//    public static void PlaceAS() {
+//        Place(381.5, 8, 514.5, "test");
+//    }
 }

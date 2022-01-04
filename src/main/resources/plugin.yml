@@ -1,3 +1,7 @@
 name: LobbyCore
 version: '${version}'
 main: me.qubique.lobbycore.LobbyCore
+commands:
+  hologram:
+    description: hologram
+    usage: /<commands>

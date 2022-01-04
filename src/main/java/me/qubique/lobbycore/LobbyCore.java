@@ -35,11 +35,13 @@ public final class LobbyCore extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
+
         Bukkit.getPluginManager().registerEvents(new JoinListener(),this);
         Bukkit.getPluginManager().registerEvents(new GuiInventory(), this);
         Bukkit.getPluginManager().registerEvents(new DoubleJumpListener(), this);
         Bukkit.getPluginManager().registerEvents(new BlockCommands(), this);
-        ArmorStandPlace.PlaceAS();
+        getCommand("hologram").setExecutor(new ArmorStandPlace());
+//        ArmorStandPlace.PlaceAS();
         instance = this;
         Bukkit.getPluginManager().registerEvents(this, this);
         /*if (Bukkit.getPluginManager().getPlugin("ProtocolLib") != null) {
