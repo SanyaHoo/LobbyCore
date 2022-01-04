@@ -212,7 +212,7 @@ public class GuiInventory implements Listener {
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e) {
         Player p = (Player) e.getWhoClicked();
-        if(p.getGameMode() != GameMode.CREATIVE) {
+        if(p.getGameMode() == GameMode.ADVENTURE) {
             e.setCancelled(true);
         }
     }

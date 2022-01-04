@@ -5,6 +5,7 @@ import me.qubique.lobbycore.board.QubiqueBoard;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.*;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Hanging;
 import org.bukkit.entity.LargeFireball;
 import org.bukkit.entity.Player;
@@ -110,7 +111,9 @@ public class JoinListener implements Listener {
     }
     @EventHandler
     public void mobSpawn(EntitySpawnEvent e) {
-        e.setCancelled(true);
+        if(e.getEntity().getType() != EntityType.ARMOR_STAND){
+            e.setCancelled(true);
+        }
     }
 
     @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = false)

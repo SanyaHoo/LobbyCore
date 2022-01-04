@@ -12,6 +12,7 @@ import me.qubique.lobbycore.doublejump.DoubleJumpListener;
 import me.qubique.lobbycore.joinEvents.JoinListener;
 import me.qubique.lobbycore.menus.GuiInventory;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -35,13 +36,14 @@ public final class LobbyCore extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-
+        for(Entity e : Bukkit.getWorld("world").getEntities()) {
+            e.remove();
+        }
         Bukkit.getPluginManager().registerEvents(new JoinListener(),this);
         Bukkit.getPluginManager().registerEvents(new GuiInventory(), this);
         Bukkit.getPluginManager().registerEvents(new DoubleJumpListener(), this);
         Bukkit.getPluginManager().registerEvents(new BlockCommands(), this);
-        getCommand("hologram").setExecutor(new ArmorStandPlace());
-//        ArmorStandPlace.PlaceAS();
+        ArmorStandPlace.PlaceAS();
         instance = this;
         Bukkit.getPluginManager().registerEvents(this, this);
         /*if (Bukkit.getPluginManager().getPlugin("ProtocolLib") != null) {
