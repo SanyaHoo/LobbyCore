@@ -213,9 +213,7 @@ public class GuiInventory implements Listener {
     public void onInventoryClick(InventoryClickEvent e) {
         Player p = (Player) e.getWhoClicked();
         if(p.getGameMode() != GameMode.CREATIVE) {
-            if(e.getClickedInventory() instanceof Inventory) {
-                e.setCancelled(true);
-            }
+            e.setCancelled(true);
         }
     }
 

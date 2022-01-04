@@ -5,6 +5,7 @@ import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.events.PacketAdapter;
 import com.comphenix.protocol.events.PacketEvent;
+import me.qubique.lobbycore.armorStands.ArmorStandPlace;
 import me.qubique.lobbycore.blockCommands.BlockCommands;
 import me.qubique.lobbycore.board.QubiqueBoard;
 import me.qubique.lobbycore.doublejump.DoubleJumpListener;
@@ -18,6 +19,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import me.qubique.lobbycore.armorStands.ArmorStandPlace;
+
 import java.util.Iterator;
 
 public final class LobbyCore extends JavaPlugin implements Listener {
@@ -28,7 +31,7 @@ public final class LobbyCore extends JavaPlugin implements Listener {
 
     private static AlonsoLevels alonsoLevels;
 
-
+    public ArmorStandPlace asPlace = new ArmorStandPlace();
 
     @Override
     public void onEnable() {
@@ -36,9 +39,10 @@ public final class LobbyCore extends JavaPlugin implements Listener {
         Bukkit.getPluginManager().registerEvents(new GuiInventory(), this);
         Bukkit.getPluginManager().registerEvents(new DoubleJumpListener(), this);
         Bukkit.getPluginManager().registerEvents(new BlockCommands(), this);
-        /*instance = this;
+        ArmorStandPlace.PlaceAS();
+        instance = this;
         Bukkit.getPluginManager().registerEvents(this, this);
-        if (Bukkit.getPluginManager().getPlugin("ProtocolLib") != null) {
+        /*if (Bukkit.getPluginManager().getPlugin("ProtocolLib") != null) {
             ProtocolLibrary.getProtocolManager().addPacketListener(new PacketAdapter(this, new PacketType[]{PacketType.Play.Server.PLAYER_INFO}) {
                 public void onPacketSending(PacketEvent event) {
                     event.setCancelled(true);
