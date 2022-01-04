@@ -46,7 +46,6 @@ public class GuiInventory implements Listener {
         playerskull.setItemMeta(meta);
 
         p.getInventory().addItem(playerskull);
-        p.sendMessage(ChatColor.DARK_AQUA + "Please refer to your player heard for Player Info.");
 //      Кінець
 
 

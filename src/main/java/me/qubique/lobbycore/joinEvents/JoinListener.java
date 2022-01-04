@@ -85,7 +85,7 @@ public class JoinListener implements Listener {
     }
     @EventHandler
     public void onPlayerBreakBlock(BlockBreakEvent e) {
-        if(e.getPlayer().getGameMode() == GameMode.CREATIVE) {
+        if(e.getPlayer().getGameMode() != GameMode.CREATIVE) {
             e.setCancelled(true);
         }
     }
