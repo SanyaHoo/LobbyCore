@@ -79,13 +79,13 @@ public class JoinListener implements Listener {
     }
     @EventHandler
     public void onPlayerPlaceBlock(BlockPlaceEvent e){
-        if(e.getPlayer().getGameMode() == GameMode.SURVIVAL) {
+        if(e.getPlayer().getGameMode() != GameMode.CREATIVE) {
             e.setCancelled(true);
         }
     }
     @EventHandler
     public void onPlayerBreakBlock(BlockBreakEvent e) {
-        if(e.getPlayer().getGameMode() == GameMode.SURVIVAL) {
+        if(e.getPlayer().getGameMode() == GameMode.CREATIVE) {
             e.setCancelled(true);
         }
     }
