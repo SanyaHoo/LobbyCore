@@ -132,7 +132,6 @@ public class GuiInventory implements Listener {
                     addItemToInv(gui1, Material.BOOK, "§aДостижения", 12,"§7Нажми чтобы увидеть свой " +
                             "\n§7прогресс выполнения достижений");
 
-
                     SkullMeta meta = (SkullMeta) playerskull.getItemMeta();
                     meta.setOwner(p.getName());
                     meta.setDisplayName("§aИнформация о профиле");
@@ -145,9 +144,6 @@ public class GuiInventory implements Listener {
 
 
                     gui1.setItem(13, playerskull);
-//                addItemToInv(gui1, playerskull.getType(), "§aИнформация о профиле", 13,"§7Ник: §b" + p.getDisplayName() +
-//                        "\n§7Уровень: §btest" +
-//                        "\n§7Опыт: §btest");
                     addItemToInv(gui1, Material.BREWING_STAND_ITEM, "§aМодификатор серебра", 14,"§7Увеличивает количество серебра, " +
                             "\n§7которое вы получаете, играя в наши минирежимы" +
                             "\n" +
@@ -180,18 +176,18 @@ public class GuiInventory implements Listener {
                             "\n§7 Стоимость: §aБесплатная привилегия!");
 
                     addItemToInv(gui2, Material.IRON_BLOCK, "§bВип", 22,"§7Получаете доступ до:  " +
-                            "\n§b→§7 Получаете в 0,0001 болольше уровня"+
+                            "\n§b→§7 Получаете в 0,0001 раз больше уровня"+
                             "\n§b→§7 Получения 3 вещи раз в день"+
                             "\n§b→§7 Доступ до парочку команд(смотрите в...)"+
                             "\n "+
-                            "\n§7Стоимость: §b 50руб");
+                            "\n§7Стоимость: §b50руб");
 
                     addItemToInv(gui2, Material.GOLD_BLOCK, "§6Админ", 24,"§7Получаете доступ до:  " +
-                            "\n§6→§7 Получения в 5 болольше уровня"+
+                            "\n§6→§7 Получения в 5 раз больше уровня"+
                             "\n§6→§7 Получения 6 вещи раз в день"+
                             "\n§6→§7 Доступ до админского чату"+
                             "\n "+
-                            "\n§7Стоимость: §6 99руб");
+                            "\n§7Стоимость: §699руб");
                     p.openInventory(gui2);
                     break;
                 case LIME_SHULKER_BOX:

@@ -1,5 +1,7 @@
 package me.qubique.lobbycore.joinEvents;
 
+import com.alonsoaliaga.alonsolevels.api.AlonsoLevelsAPI;
+import com.alonsoaliaga.alonsolevels.AlonsoLevels;
 import me.qubique.lobbycore.LobbyCore;
 import me.qubique.lobbycore.board.QubiqueBoard;
 import net.md_5.bungee.api.ChatMessageType;
@@ -140,5 +142,10 @@ public class JoinListener implements Listener {
         if (p.getGameMode() != GameMode.CREATIVE) {
             event.setCancelled(true);
         }
+    }
+    @EventHandler
+    public void onArmorStandManipulate(PlayerArmorStandManipulateEvent e){
+        Player p = e.getPlayer();
+        if (p.getGameMode() != GameMode.CREATIVE) e.setCancelled(true);
     }
 }
