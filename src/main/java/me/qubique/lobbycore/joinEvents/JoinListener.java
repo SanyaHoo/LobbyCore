@@ -33,7 +33,7 @@ public class JoinListener implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent e){
         Player player = e.getPlayer();
-        Location loc = new Location(Bukkit.getWorld("world"), 384.5, 8, 517.5, 135, 0);
+        Location loc = new Location(Bukkit.getWorld("world"), 0.5, 60, 0.5, 0, 0);
         player.teleport(loc);
         player.setGameMode(GameMode.ADVENTURE);
         e.setJoinMessage("");
@@ -42,10 +42,10 @@ public class JoinListener implements Listener {
         player.setFoodLevel(20);
         LobbyCore.getInstance().qubiqueBoard.setScoreBoard(player);
 
-      /*  Bukkit.getScheduler().runTaskTimer(LobbyCore.getInstance(), () -> {
-            LobbyCore.getInstance().qubiqueBoard
+        Bukkit.getScheduler().runTaskTimer(LobbyCore.getInstance(), () -> {
+            LobbyCore.getInstance().qubiqueBoard.setScoreBoard(player);
         },0,20);
-        */
+
 
     }
 
@@ -147,5 +147,13 @@ public class JoinListener implements Listener {
     public void onArmorStandManipulate(PlayerArmorStandManipulateEvent e){
         Player p = e.getPlayer();
         if (p.getGameMode() != GameMode.CREATIVE) e.setCancelled(true);
+    }
+    @EventHandler
+    public void onFallVoid(PlayerMoveEvent e) {
+        Player p = e.getPlayer();
+        Location loc = new Location(Bukkit.getWorld("world"), 0.5, 60, 0.5, 0, 0);
+        if (p.getLocation().getY() < 15) {
+            p.teleport(loc);
+        }
     }
 }

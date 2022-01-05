@@ -1,5 +1,6 @@
 package me.qubique.lobbycore.menus;
 
+import com.alonsoaliaga.alonsolevels.api.AlonsoLevelsAPI;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -137,8 +138,8 @@ public class GuiInventory implements Listener {
                     meta.setDisplayName("§aИнформация о профиле");
                     ArrayList<String> lore=new ArrayList<>();
                     lore.add("§7Ник: §b"+ p.getDisplayName());
-                    lore.add("§7Уровень: §btest");
-                    lore.add("§7Опыт: §btest");
+                    lore.add("§7Уровень: " + AlonsoLevelsAPI.getLevel(p.getUniqueId()));
+                    lore.add("§7Опыт: " + AlonsoLevelsAPI.getExperience(p.getUniqueId()));
                     meta.setLore(lore);
                     playerskull.setItemMeta(meta);
 
