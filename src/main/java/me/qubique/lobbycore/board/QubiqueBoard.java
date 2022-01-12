@@ -20,11 +20,10 @@ public class QubiqueBoard {
 
         Team privelege = board.registerNewTeam("privelegia");
 
-        obj.getScore("§bИнфо").setScore(9);
-        obj.getScore("Ник §8» §f" + p.getDisplayName()).setScore(8);
-        obj.getScore("Группа §8» §f").setScore(7);
-        obj.getScore("Уровень §8» " + AlonsoLevelsAPI.getLevel(p.getUniqueId())).setScore(6);
-        obj.getScore("Опыт" + AlonsoLevelsAPI.getProgressBar(p.getUniqueId())).setScore(5);
+        obj.getScore("§bИнфо").setScore(8);
+        obj.getScore("Ник §8» §f" + p.getDisplayName()).setScore(7);
+        obj.getScore("Группа §8» §f").setScore(6);
+        obj.getScore("Уровень §8» §f" + AlonsoLevelsAPI.getLevel(p.getUniqueId())).setScore(5);
         obj.getScore("§1").setScore(4);
         obj.getScore("§bОнлайн").setScore(3);
         obj.getScore("Сервер §8» §f2532").setScore(2);
