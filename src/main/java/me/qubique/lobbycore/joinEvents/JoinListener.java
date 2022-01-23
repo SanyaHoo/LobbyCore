@@ -136,7 +136,7 @@ public class JoinListener implements Listener {
     public void onCreatureSpawn(CreatureSpawnEvent event) {
         if (event.getSpawnReason().equals(CreatureSpawnEvent.SpawnReason.NATURAL)) event.setCancelled(true);
     }
-    @EventHandler
+    @EventHandler(priority = EventPriority.LOWEST)
     public void onClickChests(PlayerInteractEvent event) {
         Player p = event.getPlayer();
         if (p.getGameMode() != GameMode.CREATIVE) {

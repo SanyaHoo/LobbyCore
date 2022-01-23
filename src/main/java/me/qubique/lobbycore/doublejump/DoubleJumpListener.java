@@ -21,7 +21,7 @@ public class DoubleJumpListener implements Listener {
             e.setCancelled(true);
             p.setAllowFlight(false);
             p.setFlying(false);
-            p.setVelocity(p.getLocation().getDirection().multiply(1.0D).setY(0.9D));
+            p.setVelocity(p.getLocation().getDirection().multiply(0.25D).setY(0.9D));
             p.playEffect(p.getLocation(), Effect.BLAZE_SHOOT, 15);
             p.spawnParticle(Particle.CLOUD,p.getLocation(),15);
         }
