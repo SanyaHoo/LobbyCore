@@ -1,39 +1,28 @@
 package me.qubique.lobbycore;
 
 import com.alonsoaliaga.alonsolevels.AlonsoLevels;
-import com.comphenix.protocol.PacketType;
-import com.comphenix.protocol.ProtocolLibrary;
-import com.comphenix.protocol.events.PacketAdapter;
-import com.comphenix.protocol.events.PacketEvent;
 import me.qubique.lobbycore.armorStands.ArmorStandPlace;
 import me.qubique.lobbycore.blockCommands.BlockCommands;
 import me.qubique.lobbycore.board.QubiqueBoard;
 import me.qubique.lobbycore.doublejump.DoubleJumpListener;
 import me.qubique.lobbycore.joinEvents.JoinListener;
 import me.qubique.lobbycore.menus.GuiInventory;
+import net.luckperms.api.LuckPerms;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import me.qubique.lobbycore.armorStands.ArmorStandPlace;
-
-import java.util.Iterator;
 
 public final class LobbyCore extends JavaPlugin implements Listener {
 
     public QubiqueBoard qubiqueBoard = new QubiqueBoard();
 
     private static LobbyCore instance;
-
     private static AlonsoLevels alonsoLevels;
 
     public ArmorStandPlace asPlace = new ArmorStandPlace();
-
+    public static LuckPerms luckPerms;
     @Override
     public void onEnable() {
         for(Entity e : Bukkit.getWorld("world").getEntities()) {

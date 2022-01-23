@@ -2,6 +2,8 @@ package me.qubique.lobbycore.board;
 
 import com.alonsoaliaga.alonsolevels.api.AlonsoLevelsAPI;
 import me.qubique.lobbycore.LobbyCore;
+import net.luckperms.api.LuckPerms;
+import net.luckperms.api.LuckPermsProvider;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.*;
@@ -13,6 +15,9 @@ import java.util.List;
 public class QubiqueBoard {
 
     public void setScoreBoard(Player p) {
+        LuckPerms api = LuckPermsProvider.get();
+        String prefix = api.getGroupManager().getGroup(api.getUserManager().getUser(p.getPlayer().getUniqueId()).getPrimaryGroup()).getCachedData().getMetaData().getPrefix();
+
         Scoreboard board = Bukkit.getScoreboardManager().getNewScoreboard();
         Objective obj = board.registerNewObjective("Qubique","dummy");
         obj.setDisplaySlot(DisplaySlot.SIDEBAR);
@@ -22,7 +27,7 @@ public class QubiqueBoard {
 
         obj.getScore("§bИнфо").setScore(8);
         obj.getScore("Ник §8» §f" + p.getDisplayName()).setScore(7);
-        obj.getScore("Группа §8» §f").setScore(6);
+        obj.getScore("Группа §8» " + prefix).setScore(6);
         obj.getScore("Уровень §8» §f" + AlonsoLevelsAPI.getLevel(p.getUniqueId())).setScore(5);
         obj.getScore("§1").setScore(4);
         obj.getScore("§bОнлайн").setScore(3);
