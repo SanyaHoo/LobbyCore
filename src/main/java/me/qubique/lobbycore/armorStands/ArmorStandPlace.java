@@ -15,6 +15,7 @@ public class ArmorStandPlace {
         ArmorStand hologram = (ArmorStand) world.spawnEntity(loc, EntityType.ARMOR_STAND);
         hologram.setVisible(false);
         hologram.setGravity(false);
+        hologram.setMarker(true);
         hologram.setCustomNameVisible(true);
         hologram.setCustomName(name);
     }
