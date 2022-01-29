@@ -5,3 +5,6 @@ commands:
   hologram:
     description: hologram
     usage: /<commands>
+  armorstand:
+    description: armorstand
+    usage: /<commands>

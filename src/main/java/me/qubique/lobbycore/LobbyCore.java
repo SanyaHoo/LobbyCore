@@ -1,6 +1,7 @@
 package me.qubique.lobbycore;
 
 import com.alonsoaliaga.alonsolevels.AlonsoLevels;
+import me.qubique.lobbycore.armorStands.ArmorStandCommands;
 import me.qubique.lobbycore.armorStands.ArmorStandPlace;
 import me.qubique.lobbycore.blockCommands.BlockCommands;
 import me.qubique.lobbycore.board.QubiqueBoard;
