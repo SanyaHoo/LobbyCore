@@ -1,6 +1,8 @@
 package me.qubique.lobbycore.menus;
 
 import com.alonsoaliaga.alonsolevels.api.AlonsoLevelsAPI;
+import net.luckperms.api.LuckPerms;
+import net.luckperms.api.LuckPermsProvider;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -27,10 +29,11 @@ public class GuiInventory implements Listener {
 
     @EventHandler
     public void join(PlayerJoinEvent event){
-
+        LuckPerms api = LuckPermsProvider.get();
         Player player = event.getPlayer();
-
-
+        if(api.getGroupManager().getGroup(api.getUserManager().getUser(player.getUniqueId()).getPrimaryGroup()) != api.getGroupManager().getGroup("default")){
+            player.setAllowFlight(true);
+        }
     }
 
 

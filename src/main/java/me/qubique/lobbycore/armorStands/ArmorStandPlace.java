@@ -21,9 +21,9 @@ public class ArmorStandPlace {
     }
 
     public static void PlaceAS() {
-        Place(0.5, 60, 3.5, "§n§l§cQubique.ru");
-        Place(0.5, 59.5, 3.5, "§nНажимай на компас и начинай игру!");
-        Place(0.5, 59.0, 3.5, "Покупка доната на сайте:");
-        Place(0.5, 58.75, 3.5, "§n§l§cwww.Qubique.ru");
+        Place(0.5, 61.8, 3.5, "§bQubique");
+        Place(0.5, 61.5, 3.5, "Нажимай на компас и начинай игру!");
+        Place(0.5, 61.25, 3.5, "Покупка доната на сайте:");
+        Place(0.5, 61, 3.5, "§bwww.qubique.ru");
     }
 }

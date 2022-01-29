@@ -4,7 +4,6 @@ import com.alonsoaliaga.alonsolevels.AlonsoLevels;
 import me.qubique.lobbycore.armorStands.ArmorStandPlace;
 import me.qubique.lobbycore.blockCommands.BlockCommands;
 import me.qubique.lobbycore.board.QubiqueBoard;
-import me.qubique.lobbycore.doublejump.DoubleJumpListener;
 import me.qubique.lobbycore.joinEvents.JoinListener;
 import me.qubique.lobbycore.menus.GuiInventory;
 import net.luckperms.api.LuckPerms;
@@ -30,7 +29,6 @@ public final class LobbyCore extends JavaPlugin implements Listener {
         }
         Bukkit.getPluginManager().registerEvents(new JoinListener(),this);
         Bukkit.getPluginManager().registerEvents(new GuiInventory(), this);
-        Bukkit.getPluginManager().registerEvents(new DoubleJumpListener(), this);
         Bukkit.getPluginManager().registerEvents(new BlockCommands(), this);
         ArmorStandPlace.PlaceAS();
         instance = this;

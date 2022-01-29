@@ -32,7 +32,7 @@ public class QubiqueBoard {
         obj.getScore("§1").setScore(4);
         obj.getScore("§bОнлайн").setScore(3);
         obj.getScore("Сервер §8» §f2532").setScore(2);
-        obj.getScore("Хаб §8» §f14").setScore(1);
+        obj.getScore("Хаб §8» §f" + Bukkit.getOnlinePlayers().size()).setScore(1);
         obj.getScore("    www.qubique.ru").setScore(0);
         privelege.addEntry("§e");
         privelege.setPrefix("§e");
